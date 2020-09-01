@@ -4,7 +4,7 @@ Create a import data script for Tour Model using `dev-data/data/tours-simple.jso
 
 #### API Features ( query strings :mag: ): Get All Tours should support following query string
 
-:rocket: `javascript/api/v1/tours?duration=5&difficulty=easy`
+:rocket: `javascript /api/v1/tours?duration=5&difficulty=easy`
 
 :rocket: `/api/v1/tours?duration[gte]=5&difficulty=easy`
 
