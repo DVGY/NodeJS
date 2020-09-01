@@ -1,10 +1,10 @@
 # Flow Of developemnt
 
-Create a import data script for Tour Model using `dev-data/data/tours-simple.json` :clipboard:
+:rocket: Create a import data script for Tour Model using `dev-data/data/tours-simple.json`
 
 #### API Features ( query strings :mag: ): Get All Tours should support following query string
 
-:rocket: `#f03c15 /api/v1/tours?duration=5&difficulty=easy #f03c15`
+:rocket: `/api/v1/tours?duration=5&difficulty=easy`
 
 :rocket: `/api/v1/tours?duration[gte]=5&difficulty=easy`
 
@@ -18,7 +18,7 @@ Create a import data script for Tour Model using `dev-data/data/tours-simple.jso
 
 :rocket: `/api/v1/tours?page=2&limit=20` (pagination)
 
-:rocket: Create a route `/api/v1/tours/top-5-cheap` which returns all the top 5 cheap tours, with `fields = name,difficulty,price,averageRating, summary`
+:rocket: Create a route `/api/v1/tours/top-5-cheap` which returns all the top 5 cheap tours, with `fields = name, difficulty, price, averageRating, summary`
 
 #### Refactor API Features
 
