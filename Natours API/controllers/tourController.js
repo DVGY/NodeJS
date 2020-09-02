@@ -3,9 +3,10 @@ const Tour = require('../models/tourModel');
 //Get All Tours
 //Note: req.query take key in present in doc
 exports.getAllTours = async (req, res) => {
+  //Filtering
   const queryObj = { ...req.query };
 
-  const excludedQueryKey = ['sort', 'limit'];
+  const excludedQueryKey = ['sort', 'limit', 'fields'];
   excludedQueryKey.forEach(queryKey => delete queryObj[queryKey]);
 
   const queryStr = JSON.stringify(queryObj).replace(
@@ -13,8 +14,15 @@ exports.getAllTours = async (req, res) => {
     match => `$${match}`
   );
 
+  const sortQuery = req.query.sort ? req.query.sort.split(',').join(' ') : {};
+  const selectFieldsQuery = req.query.fields
+    ? req.query.fields.split(',').join(' ')
+    : {};
+  console.log(selectFieldsQuery);
   try {
-    const tours = await Tour.find(JSON.parse(queryStr));
+    const tours = await Tour.find(JSON.parse(queryStr))
+      .sort(sortQuery)
+      .select(selectFieldsQuery);
     res.status(200).json({
       msg: 'success',
       results: tours.length,
