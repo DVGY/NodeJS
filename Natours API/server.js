@@ -3,17 +3,18 @@ const dotenv = require('dotenv');
 const app = require('./app');
 
 dotenv.config({ path: './config.env' });
+
 const DB = process.env.DATABASE;
 
-const db = mongoose
+mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   })
   .then(() => console.log('Database connected successfully'))
-  .catch((err) => console.log(err));
+  .catch(err => console.log(err));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
